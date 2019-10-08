@@ -18,9 +18,9 @@ public class Springv2Application {
 	}
 
 
-	@RequestMapping("/doctors/{id}")
+	@RequestMapping("/doctor/{id}")
 	@ResponseBody
-	public String doctors(@PathVariable int id) {
+	public String doctor(@PathVariable int id) {
 		if (id <= 8 && id >= 1) {
 			throw new ResponseStatusException(HttpStatus.SEE_OTHER, "See other");
 		}else if (id == 9) {
@@ -34,6 +34,6 @@ public class Springv2Application {
 		}else if (id == 13) {
 			return "Jodie Whittaker est l'acteur n°" + id;
 		}
-		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Impossible de récupérer l'incarnation <numéro de l'incarnation>");
+		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Impossible de récupérer l'incarnation " + id);
 	}
 }
